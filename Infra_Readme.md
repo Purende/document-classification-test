@@ -25,8 +25,8 @@ Infrastructure for running Document Classification Model(DCM) in AWS. We are run
 * Configure Route 53
 
 ### Flow
-Build Docker file and push to ECR
-Deploy Terraform ECS Fargate cluster for Document Classification Model(DCM) in AWS
+* Build Docker file and push to ECR
+* Deploy Terraform ECS Fargate cluster for Document Classification Model(DCM) in AWS
 
 ### Usage
 ```
@@ -38,4 +38,5 @@ $ terraform apply
 
 ![DCM_UI](./images/DCM_UI.png)
 ![DCM_Data](./images/DCM_Data.png)
+
 ![DCM_Result](./images/DCM_Result.png)

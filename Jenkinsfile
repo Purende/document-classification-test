@@ -13,7 +13,7 @@ pipeline {
   stages {
        stage('DCM Image Build') {
            when { branch 'master' }
-             agent { docker { image 'ubuntu' } }
+            // agent { docker { image 'ubuntu' } }
               steps {
             sh '''
                export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
@@ -31,7 +31,7 @@ pipeline {
 
         stage('DCM Terraform plan') {
            when { branch 'master' }
-             agent { docker { image 'hashicorp/terraform:0.12.15' } }
+            // agent { docker { image 'hashicorp/terraform:0.12.15' } }
               steps {
             sh '''
                terraform init
@@ -42,7 +42,7 @@ pipeline {
 
         stage('DCM Terraform plan') {
            when { branch 'master' }
-             agent { docker { image 'hashicorp/terraform:0.12.15' } }
+            // agent { docker { image 'hashicorp/terraform:0.12.15' } }
               steps {
             sh '''
                terraform apply

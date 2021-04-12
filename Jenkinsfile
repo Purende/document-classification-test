@@ -1,9 +1,9 @@
 pipeline {
-  agent { label 'docker' }
-  options { 
-    timeout(time: 1, unit: 'HOURS')
-    ansiColor('xterm') 
-  }
+  agent any
+  //options { 
+   // timeout(time: 1, unit: 'HOURS')
+   // ansiColor('xterm') 
+  //}
   environment {
     AWS_ACCESS_KEY_ID = credentials('aws-access-key')
     AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')

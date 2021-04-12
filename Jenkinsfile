@@ -40,7 +40,7 @@ pipeline {
           }
         } 
 
-        stage('DCM Terraform plan') {
+        stage('DCM Terraform apply') {
            when { branch 'master' }
             // agent { docker { image 'hashicorp/terraform:0.12.15' } }
               steps {

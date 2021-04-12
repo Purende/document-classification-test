@@ -49,14 +49,14 @@ pipeline {
                '''
           }
         }        
-      post{
-        success{
-          slackSend (color: 'good', channel: '#DCM', message: ":happy_goat: ${env.CHANGE_AUTHOR_DISPLAY_NAME} has submitted a passing JOB!")
-        }
-        failure{
-          slackSend (color: 'warning', channel: "#DCM", message: ":panic: ${env.CHANGE_AUTHOR_DISPLAY_NAME}: Bad news, your DCM JOB Failed.")
-        }
-      }
+      //post{
+        //success{
+         // slackSend (color: 'good', channel: '#DCM', message: ":happy_goat: ${env.CHANGE_AUTHOR_DISPLAY_NAME} has submitted a passing JOB!")
+        //}
+        //failure{
+          //slackSend (color: 'warning', channel: "#DCM", message: ":panic: ${env.CHANGE_AUTHOR_DISPLAY_NAME}: Bad news, your DCM JOB Failed.")
+        //}
+      //}
   }
   post{ 
       always{ 

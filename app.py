@@ -1,10 +1,19 @@
+#!/usr/bin/env python
 import flask
 from flask import Flask,render_template,url_for,request
 import pandas as pd
-import pickle
+import pickle5 as pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import LinearSVC
 import joblib
+
+#import flask
+#from flask import Flask,render_template,url_for,request
+#import pandas as pd
+#import pickle
+#from sklearn.feature_extraction.text import CountVectorizer
+#from sklearn.svm import LinearSVC
+#import joblib
 
 ## Load the model from local
 

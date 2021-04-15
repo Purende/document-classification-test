@@ -12,7 +12,7 @@ pipeline {
   }
   stages {
        stage('DCM Image Build') {
-           when { branch 'master' }
+           //when { branch 'master' }
             // agent { docker { image 'ubuntu' } }
               steps {
             sh '''
@@ -30,7 +30,7 @@ pipeline {
         }
 
         stage('DCM Terraform plan') {
-           when { branch 'master' }
+           //when { branch 'master' }
             // agent { docker { image 'hashicorp/terraform:0.12.15' } }
               steps {
             sh '''
@@ -41,7 +41,7 @@ pipeline {
         } 
 
         stage('DCM Terraform apply') {
-           when { branch 'master' }
+           //when { branch 'master' }
             // agent { docker { image 'hashicorp/terraform:0.12.15' } }
               steps {
             sh '''

@@ -5,7 +5,7 @@ provider "aws" {
 ### ALB
 resource "aws_alb" "main1" {
   name            = "${var.alb_name}"
-  internal        = true
+  internal        = false
   subnets         = ["subnet-3d4d7270", "subnet-7da2c85c"]
   security_groups = ["${aws_security_group.lb.id}"]
 }

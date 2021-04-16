@@ -46,16 +46,16 @@ resource "aws_alb_listener" "front" {
 
  ### ECS Cluster for DCM
 
-resource "aws_ecs_cluster" "main" {
+resource "aws_ecs_cluster" "DCM-MLOPS" {
   name = "${var.ecs_cluster}"
 }
 
-resource "aws_ecs_task_definition" "app" {
+resource "aws_ecs_task_definition" "DCM-MLOPS-APP" {
   family                   = "${var.ecs_task_definition}"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = 2048
-  memory                   = 1024 
+  memory                   = 3000
   task_role_arn            = "${var.ecs_role}"  
   execution_role_arn       = "${var.ecs_role}"               
   container_definitions = <<DEFINITION

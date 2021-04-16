@@ -98,7 +98,7 @@ resource "aws_route53_record" "public" {
   alias {
     name    = "${aws_alb.main1.dns_name}"
     zone_id = "${aws_alb.main1.zone_id}"
-    evaluate_target_health = false
+    evaluate_target_health = true
   }
 }
 

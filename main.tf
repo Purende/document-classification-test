@@ -86,8 +86,8 @@ DEFINITION
 
 resource "aws_ecs_service" "main" {
   name            = "${var.ecs_service}"
-  cluster         = "${aws_ecs_cluster.main.id}"
-  task_definition = "${aws_ecs_task_definition.app.arn}"
+  cluster         = "${aws_ecs_cluster.DCM-MLOPS.id}"
+  task_definition = "${aws_ecs_task_definition.DCM-MLOPS-APP.arn}"
   desired_count   = 1
   launch_type     = "FARGATE"
 

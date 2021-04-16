@@ -6,11 +6,11 @@ variable "region_name" {
    default = "us-east-1"
  }
 variable "alb_name" {
-   default = "dcm"
+   default = "dcm-lb"
    description = "The name of the Load Balancer"
  }
 variable "ecs_cluster" {
-  default = "DCM-MLOPS-Cluster"
+  default = "DCMCluster"
   description = "The name of the ECS Cluster"
 }
 
@@ -25,6 +25,6 @@ variable "ecs_service" {
 }
 
 variable "ecs_role" {
-  default = "arn:aws:iam::302939895826:role/OneCloud/ECS_RoleAccess"
+  default = "arn:aws:iam::302939895826:role/ecs_access"
   description = "The role of the ECS Cluster Service"
 }

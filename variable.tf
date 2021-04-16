@@ -9,6 +9,10 @@ variable "alb_name" {
    default = "dcm-lb"
    description = "The name of the Load Balancer"
  }
+variable "tg_name" {
+   default = "dcm-tg"
+   description = "The name of the Load Balancer"
+ }
 variable "ecs_cluster" {
   default = "DCMCluster"
   description = "The name of the ECS Cluster"

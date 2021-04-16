@@ -31,18 +31,18 @@ resource "aws_alb_listener" "front_end" {
     type             = "forward"
   }
  }
-resource "aws_alb_listener" "front" {
-  load_balancer_arn = "${aws_alb.main.id}"
-  port              = "443"
-  protocol          = "HTTPS"
-  certificate_arn   = "arn:aws:acm:us-east-1:302939895826:certificate/ds51f99f-gh11-458g-9vgt-08654b3935b5343"
-  ssl_policy        = "ELBSecurityPolicy-2016-08" 
+# resource "aws_alb_listener" "front" {
+#   load_balancer_arn = "${aws_alb.main.id}"
+#   port              = "443"
+#   protocol          = "HTTPS"
+#   certificate_arn   = "arn:aws:acm:us-east-1:302939895826:certificate/ds51f99f-gh11-458g-9vgt-08654b3935b5343"
+#   ssl_policy        = "ELBSecurityPolicy-2016-08" 
 
-  default_action {
-    target_group_arn = "${aws_alb_target_group.app.id}"
-    type             = "forward"
-  }
- }
+#   default_action {
+#     target_group_arn = "${aws_alb_target_group.app.id}"
+#     type             = "forward"
+#   }
+#  }
 
  ### ECS Cluster for DCM
 

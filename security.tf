@@ -49,8 +49,4 @@ resource "aws_security_group" "lb" {
     protocol  = "-1"
     cidr_blocks = ["0.0.0.0/0"]    ## Outbound opened 
   }
-
-  tags {
-    Name = "DCM"
-  }
 }

@@ -4,7 +4,7 @@
 # ALB Security group
 # # Allow access to ALB from VPC IP space
 resource "aws_security_group" "lb" {
-  name        = "dcm"
+  name        = "dcm-mlops"
   description = "controls access to the ALB"
   vpc_id      = "${var.vpc_id}"
 

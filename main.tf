@@ -8,13 +8,13 @@ provider "aws" {
 resource "aws_alb" "main" {
   name            = "${var.alb_name}"
   internal        = true 
-  subnets         = ["subnet-62833053", "subnet-3d4d7270"]
+  subnets         = ["subnet-3d4d7270", "subnet-7da2c85c"]
   security_groups = ["${aws_security_group.lb.id}"]
 }
 
 resource "aws_alb_target_group" "app" {
   name        = "${var.alb_name}"
-  port        = 9000
+  port        = 5000
   protocol    = "HTTP"
   vpc_id      = "${var.vpc_id1}"
   target_type = "ip"
@@ -54,8 +54,8 @@ resource "aws_ecs_task_definition" "app" {
   family                   = "${var.ecs_task_definition}"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = 4096
-  memory                   = 8192 
+  cpu                      = 2048
+  memory                   = 1024 
   task_role_arn            = "${var.ecs_role}"  
   execution_role_arn       = "${var.ecs_role}"               
   container_definitions = <<DEFINITION
@@ -92,8 +92,8 @@ resource "aws_ecs_service" "main" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    security_groups = "${aws_security_group.lb.id}"
-    subnets         = ["subnet-62833053"]
+    security_groups = ["sg-06518c97876757d62"]
+    subnets         = ["subnet-7da2c85c"]
     assign_public_ip = true 
   }
 
@@ -108,15 +108,11 @@ resource "aws_ecs_service" "main" {
   ]
 }
 
-### ROUTE 53 
-resource "aws_route53_record" "public" {
-  zone_id = "M4S2GD4Y5O7JKU"
-  name    = "dcm-test.mlops.com"
-  type    = "A"
-
-  alias {
-    name    = "${aws_alb.main.dns_name}"
-    zone_id = "${aws_alb.main.zone_id}"
-    evaluate_target_health = false
+terraform {
+  backend "s3" {
+    bucket  = "dcm-infra-statefiles"
+    key     = "dcm-infra-statefiles/tfstate.json"
+    encrypt = true
+    region  = "us-east-1"
   }
 }

@@ -57,7 +57,7 @@ resource "aws_ecs_task_definition" "DCM-MLOPS-APP" {
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
-        "awslogs-group": "/ecs/app",
+        "awslogs-group": "/ecs/DCMfargate",
         "awslogs-region": "us-east-1",
         "awslogs-stream-prefix": "ecs"
       }

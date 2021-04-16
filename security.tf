@@ -6,7 +6,7 @@
 resource "aws_security_group" "lb" {
   name        = "dcm"
   description = "controls access to the ALB"
-  vpc_id      = "${var.vpc_id1}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     protocol    = "tcp"

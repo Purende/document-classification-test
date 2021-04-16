@@ -11,7 +11,7 @@ resource "aws_alb" "main1" {
 }
 
 resource "aws_alb_target_group" "app" {
-  name        = "${var.alb_name}"
+  name        = "${var.tg_name}"
   port        = 5000
   protocol    = "HTTP"
   vpc_id      = "${var.vpc_id}"

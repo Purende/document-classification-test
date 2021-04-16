@@ -13,7 +13,7 @@ RUN apt-get update && \
 #Change directory and clone DCM Public ghe repo
 RUN mkdir /usr/dcm \
     && cd /usr/dcm \
-    && git clone https://github.com/NarayanaReddy7/document-classification-test.git
+    && git clone https://github.com/Purende/document-classification-test.git
 
 #Set working directory
 RUN chmod +x /usr/dcm/document-classification-test/app.py

@@ -90,17 +90,17 @@ resource "aws_ecs_service" "main" {
   ]
 }
 
-resource "aws_route53_record" "public" {
-  zone_id = "Z033818033HNUDX0UEOI1"
-  name    = "dcm-test-mlops.com"
-  type    = "A"
+# resource "aws_route53_record" "public" {
+#   zone_id = "Z033818033HNUDX0UEOI1"
+#   name    = "dcm-test-mlops.com"
+#   type    = "A"
 
-  alias {
-    name    = "${aws_alb.main1.dns_name}"
-    zone_id = "${aws_alb.main1.zone_id}"
-    evaluate_target_health = true
-  }
-}
+#   alias {
+#     name    = "${aws_alb.main1.dns_name}"
+#     zone_id = "${aws_alb.main1.zone_id}"
+#     evaluate_target_health = true
+#   }
+# }
 
 terraform {
   backend "s3" {

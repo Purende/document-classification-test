@@ -9,7 +9,7 @@ pipeline {
               steps {
             sh '''
                export AWS_DEFAULT_REGION=us-east-1
-               docker system prune -a -y
+               docker system prune -a -f
                docker pull amazon/aws-cli:latest
                aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REPO}
                docker build -t dcm-deploy .
